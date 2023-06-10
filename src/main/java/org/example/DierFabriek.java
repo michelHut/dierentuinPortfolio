@@ -2,41 +2,26 @@ package org.example;
 
 
 public interface DierFabriek{
-    void creeerDier(String diersoort, String naam, String geslacht, String voeding);
+    Dier creeerDier(String naam, String geslacht, String voeding);
 
 }
-class RoofdierFabriek implements DierFabriek {
-
+class LeeuwFabriek implements DierFabriek{
     @Override
-    public void creeerDier(String diersoort, String naam, String geslacht, String voeding) {
-        Dier dier;
-        if (diersoort.equalsIgnoreCase("leeuw")) {
-            dier = new Leeuw(naam, geslacht, voeding);
-        } else {
-            throw new IllegalArgumentException("Dit dier bestaat niet als roofdier: " + diersoort);
-        }
-
-        DierBeheer.voegDierenToe(dier);
+    public Dier creeerDier(String naam, String geslacht, String voeding) {
+        return new Leeuw(naam,geslacht,voeding);
     }
 }
-
-class ProoiDierFabriek implements DierFabriek {
-
+class OlifantFabriek implements DierFabriek{
     @Override
-    public void creeerDier(String diersoort, String naam, String geslacht, String voeding) {
-        Dier dier;
-        if (diersoort.equalsIgnoreCase("olifant")) {
-            dier = new Olifant(naam, geslacht, voeding);
-        } else if (diersoort.equalsIgnoreCase("stokstaart")) {
-            dier = new Stokstaart(naam, geslacht, voeding);
-        } else {
-            throw new IllegalArgumentException("Dit dier bestaat niet: " + diersoort);
-        }
-
-        DierBeheer.voegDierenToe(dier);
+    public Dier creeerDier( String naam, String geslacht, String voeding) {
+        return new Olifant(naam,geslacht,voeding);
     }
-
-
+}
+class StokstaartFabriek implements DierFabriek{
+    @Override
+    public Dier creeerDier(String naam, String geslacht, String voeding) {
+        return new Stokstaart(naam,geslacht,voeding);
+    }
 }
 
 

@@ -12,23 +12,22 @@ public class DierBeheer {
     public static void getDierenInBezit() {
 
         for (Dier dier : dieren) {
-            System.out.println("");
-            System.out.println("----------");
-            System.out.println("soort dier: " + dier.getSoort());
-            System.out.println("naam: " + dier.getNaam());
-            System.out.println("----------");
-            System.out.println("");
+            IO.printLn("");
+            IO.printLn("----------");
+            IO.printLn("soort dier: " + dier.getSoort());
+            IO.printLn("naam: " + dier.getNaam());
+            IO.printLn("----------");
+            IO.printLn("");
         }
 
     }
-
     public static void bezoekDier(String soort, String naam) {
         Dier diersoort = null;
         for (Dier dier : dieren) {
             if (soort.equalsIgnoreCase(dier.getSoort()) && naam.equalsIgnoreCase(dier.getNaam())) {
                 diersoort = dier;
             }
-            diersoort.weergeefMeerInfo();
+            new DierPrinter().printInfo(diersoort);
         }
     }
 }

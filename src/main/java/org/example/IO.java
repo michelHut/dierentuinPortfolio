@@ -4,18 +4,19 @@ import java.util.Scanner;
 
 public class IO {
 
-    private Scanner scanner = new Scanner(System.in);
-    public void printLn(String string){
+    private static Scanner scanner = new Scanner(System.in);
+    public static void printLn(String string){
         System.out.println(string);
     }
-    public String getInputString(){
+    public static String getInputString(){
         return scanner.nextLine();
     }
-    public int getInputInt(){
-        return scanner.nextInt();
+    public static int getInputInt(){
+        int input = scanner.nextInt();
+        scanner.nextLine();
+        return input;
     }
-
-    public boolean getInputBool(){
+    public static boolean getInputBool(){
         return scanner.nextBoolean();
     }
 

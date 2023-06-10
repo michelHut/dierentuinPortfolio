@@ -5,87 +5,62 @@ public abstract class Dier {
     private String naam;
     private String geslacht;
     private String voeding;
+    private String geluid;
+    private String soort;
     public String getNaam() {
         return naam;
     }
-
     public String getGeslacht() {
         return geslacht;
     }
-
     public String getVoeding() {
         return voeding;
     }
+    public String getSoort(){
+        return soort;
+    }
+    protected String getGeluid() {
+        return geluid;
+    }
 
-    public Dier(String naam, String geslacht, String voeding){
+    public Dier(String naam, String geslacht, String voeding, String geluid, String soort){
         this.naam = naam;
         this.geslacht = geslacht;
         this.voeding = voeding;
+        this.geluid = geluid;
+        this.soort = soort;
     }
-
     public abstract void weergeefMeerInfo();
-    public void weergeefInfo(){
-        System.out.println("naam: " + naam);
-        System.out.println("geslacht: " + geslacht);
-        System.out.println("voeding: " + voeding);
-        weergeefMeerInfo();
-
-    }
-    public abstract String getSoort();
 }
-
 class Leeuw extends Dier{
-    private final String geluid = "Rawr";
-    private final String soort = "Leeuw";
     public Leeuw(String naam, String geslacht, String voeding) {
-        super(naam, geslacht, voeding);
+        super(naam, geslacht, voeding,"Rawr","Leeuw");
     }
 
     @Override
     public void weergeefMeerInfo() {
-        System.out.println("soort dier: " + soort);
-        System.out.println("hij maakt het geluid: " + geluid);
+        new DierPrinter().printExtraInfo(this);
     }
-
-    @Override
-    public String getSoort() {
-        return soort;
-    }
-
 }
 
 class Olifant extends Dier{
-    private final String geluid = "pfffoeee";
-    private final String soort = "Olifant";
     public Olifant(String naam, String geslacht, String voeding) {
-        super(naam, geslacht, voeding);
+        super(naam, geslacht, voeding,"PFoeeeee", "Olifant");
     }
 
     @Override
     public void weergeefMeerInfo() {
-        System.out.println("soort dier: " + soort);
-        System.out.println("hij maakt het geluid: " + geluid);
-    }
-    @Override
-    public String getSoort() {
-        return soort;
+        new DierPrinter().printExtraInfo(this);
     }
 }
 
-class Stokstaart extends Dier{
-    private final String geluid = "miep miep";
-    private final String soort = "Stokstaart";
+class Stokstaart extends Dier {
     public Stokstaart(String naam, String geslacht, String voeding) {
-        super(naam, geslacht, voeding);
+        super(naam, geslacht, voeding,"Miep Miep", "Stokstaart");
     }
 
     @Override
     public void weergeefMeerInfo() {
-        System.out.println("soort dier: " + soort);
-        System.out.println("hij maakt het geluid: " + geluid);
-    }
-    @Override
-    public String getSoort() {
-        return soort;
+        new DierPrinter().printExtraInfo(this);
     }
 }
